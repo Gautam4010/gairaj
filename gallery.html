@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Chhinmastke Enterprises - Premium Gallery</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f8f9fa;
+            --accent-color: #e63946;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding-bottom: 80px;
+            /* Space for fixed buttons on mobile */
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-icon {
+            margin-right: 10px;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: all 0.3s;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(44, 90, 160, 0.05);
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+        }
+
+        .dropdown-item {
+            color: var(--text-color);
+            transition: all 0.3s;
+            padding: 8px 20px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(44, 90, 160, 0.08);
+            color: var(--primary-color);
+        }
+
+        /* Call and WhatsApp Buttons - Desktop */
+        .btn-call,
+        .btn-whatsapp {
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-call {
+            background-color: white;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-call:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            border: 1px solid #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Fixed Mobile Buttons */
+        .fixed-mobile-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+            z-index: 1030;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 15px;
+        }
+
+        .fixed-mobile-buttons .btn {
+            flex: 1;
+            margin: 0 5px;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .fixed-call-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .fixed-whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: 1px solid #25D366;
+        }
+
+        /* Show fixed buttons only on mobile */
+        @media (max-width: 991.98px) {
+            .fixed-mobile-buttons {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Mobile Menu Styling */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100%;
+            background-color: white;
+            z-index: 1050;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+            padding: 25px;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-menu-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-brand-icon {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-menu:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--accent-color);
+        }
+
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 8px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .mobile-nav-link:hover {
+            background-color: rgba(44, 90, 160, 0.08);
+            color: var(--primary-color);
+        }
+
+        .mobile-dropdown {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            display: none;
+            border-left: 2px solid var(--border-color);
+            padding-left: 10px;
+        }
+
+        .mobile-dropdown.active {
+            display: block;
+        }
+
+        .mobile-dropdown-item {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .mobile-dropdown-item:hover {
+            background-color: rgba(44, 90, 160, 0.08);
+            color: var(--primary-color);
+        }
+
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: middle;
+            content: "▼";
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .mobile-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-btn-call {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .mobile-btn-call:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .mobile-btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: 1px solid #25D366;
+        }
+
+        .mobile-btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1049;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hamburger Icon */
+        .navbar-toggler {
+            border: none;
+            padding: 5px 10px;
+            background: transparent;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            width: 25px;
+            height: 20px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-icon.active .hamburger-line:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+
+        .hamburger-icon.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.active .hamburger-line:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --dark-blue: #0f2a6b;
+            --accent-red: #dc2626;
+            --light-red: #f87171;
+            --gold: #f59e0b;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --dark-gray: #374151;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        /* Premium Gallery Section */
+        .premium-gallery-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.02"><path fill="%231e3a8a" d="M500,100 C700,50 800,200 900,300 C1000,400 900,600 700,700 C500,800 300,700 200,600 C100,500 200,300 300,200 C400,100 500,100 500,100 Z"/></svg>') no-repeat center center;
+            background-size: cover;
+        }
+
+        .section-header-premium {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark-gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-title-premium {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title-premium::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-red), var(--gold));
+            border-radius: 2px;
+        }
+
+        .section-subtitle-premium {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 40px auto 0;
+            line-height: 1.7;
+        }
+
+        /* Enhanced Filter Tabs */
+        .filter-tabs-premium {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .filter-btn-premium {
+            padding: 14px 28px;
+            background: var(--white);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.1);
+        }
+
+        .filter-btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .filter-btn-premium:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn-premium:hover,
+        .filter-btn-premium.active {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .filter-btn-premium i {
+            font-size: 1.1rem;
+        }
+
+        /* Advanced Gallery Grid */
+        .gallery-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .gallery-item-premium {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--white);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .gallery-item-premium.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item-premium:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .gallery-image-premium {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item-premium:hover .gallery-image-premium {
+            transform: scale(1.1);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-red);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .gallery-overlay-premium {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(30, 58, 138, 0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: var(--white);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item-premium:hover .gallery-overlay-premium {
+            opacity: 1;
+        }
+
+        .gallery-title-premium {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item-premium:hover .gallery-title-premium {
+            transform: translateY(0);
+        }
+
+        .gallery-description-premium {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .gallery-item-premium:hover .gallery-description-premium {
+            transform: translateY(0);
+        }
+
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-date {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .gallery-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gallery-action-btn {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-action-btn:hover {
+            background: var(--accent-red);
+            transform: scale(1.1);
+        }
+
+       
+
+        /* Enhanced Lightbox */
+        .lightbox-modal-premium {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-modal-premium.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content-premium {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox-modal-premium.active .lightbox-content-premium {
+            transform: scale(1);
+        }
+
+        .lightbox-image-premium {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-info-premium {
+            padding: 30px;
+            background: var(--white);
+        }
+
+        .lightbox-category-premium {
+            display: inline-block;
+            background: var(--accent-red);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-title-premium {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .lightbox-description-premium {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .lightbox-meta-premium {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .lightbox-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .lightbox-close-premium {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .lightbox-close-premium:hover {
+            background: var(--accent-red);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav-premium {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .lightbox-nav-premium:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev-premium {
+            left: 30px;
+        }
+
+        .lightbox-next-premium {
+            right: 30px;
+        }
+
+        /* Loading Animation */
+        .gallery-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 16px;
+            height: 350px;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid-premium {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .premium-gallery-section {
+                padding: 80px 0;
+            }
+
+            .section-title-premium {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid-premium {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title-premium {
+                font-size: 2rem;
+            }
+
+            .filter-tabs-premium {
+                gap: 8px;
+            }
+
+            .filter-btn-premium {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .gallery-grid-premium {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .lightbox-content-premium {
+                max-width: 95%;
+            }
+
+            .lightbox-nav-premium {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev-premium {
+                left: 15px;
+            }
+
+            .lightbox-next-premium {
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .premium-gallery-section {
+                padding: 60px 0;
+            }
+
+            .section-title-premium {
+                font-size: 1.8rem;
+            }
+
+            .filter-tabs-premium {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn-premium {
+                width: 250px;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .gallery-image-container {
+                height: 220px;
+            }
+
+            .lightbox-nav-premium {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-tools brand-icon"></i>
+                Ma Chhinmastke Enterprises
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-wrench me-2"></i>JCB Repairing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>JCB Spare Parts</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-lightning-charge me-2"></i>Welding
+                                    Service</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-droplet me-2"></i>Car Washing</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-truck me-2"></i>On-Site Service</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Call and WhatsApp Buttons - Desktop -->
+                <div class="d-none d-lg-flex ms-3">
+                    <a href="tel:+911234567890" class="btn btn-call">
+                        <i class="bi bi-telephone-fill me-1"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/911234567890" target="_blank" class="btn btn-whatsapp">
+                        <i class="bi bi-whatsapp me-1"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler d-lg-none" type="button" id="mobileMenuToggle">
+                <div class="hamburger-icon">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3 class="mobile-menu-title">
+                <i class="bi bi-tools mobile-brand-icon"></i>
+                Menu
+            </h3>
+            <button class="close-menu" id="closeMenu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-house me-2"></i>Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-info-circle me-2"></i>About Us</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link dropdown-toggle" id="mobileServicesToggle">
+                    <i class="bi bi-tools me-2"></i>Services
+                </a>
+                <div class="mobile-dropdown" id="mobileServicesDropdown">
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-wrench me-2"></i>JCB Repairing</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-gear me-2"></i>JCB Spare Parts</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-lightning-charge me-2"></i>Welding
+                        Service</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-droplet me-2"></i>Car Washing</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-truck me-2"></i>On-Site Service</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="gallery.html" class="mobile-nav-link"><i class="bi bi-images me-2"></i>Gallery</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-telephone me-2"></i>Contact Us</a>
+            </li>
+        </ul>
+
+        <div class="mobile-buttons">
+            <a href="tel:+911234567890" class="mobile-btn mobile-btn-call">
+                <i class="bi bi-telephone-fill"></i> Call Now
+            </a>
+            <a href="https://wa.me/911234567890" target="_blank" class="mobile-btn mobile-btn-whatsapp">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Premium Gallery Section -->
+    <section class="premium-gallery-section" id="premium-gallery">
+        <div class="container">
+            <div class="section-header-premium">
+                <span class="section-badge animate__animated animate__fadeIn">
+                    <i class="bi bi-award-fill me-2"></i>Premium Work Gallery
+                </span>
+                <h2 class="section-title-premium animate__animated animate__fadeInUp">Our Excellence in Automotive
+                    Services</h2>
+                <p class="section-subtitle-premium animate__animated animate__fadeInUp animate__delay-1s">
+                    Discover our commitment to quality through these showcased projects. Each image represents our
+                    dedication
+                    to precision, reliability, and customer satisfaction in every service we provide.
+                </p>
+            </div>
+
+            <!-- Enhanced Filter Tabs -->
+            <div class="filter-tabs-premium">
+                <button class="filter-btn-premium active" data-filter="all">
+                    <i class="bi bi-grid-3x3-gap"></i> All Projects
+                </button>
+                <button class="filter-btn-premium" data-filter="jcb-repairing">
+                    <i class="bi bi-tools"></i> JCB Repairing
+                </button>
+                <button class="filter-btn-premium" data-filter="spare-parts">
+                    <i class="bi bi-gear"></i> Spare Parts
+                </button>
+                <button class="filter-btn-premium" data-filter="welding">
+                    <i class="bi bi-lightning-charge"></i> Welding
+                </button>
+                <button class="filter-btn-premium" data-filter="car-washing">
+                    <i class="bi bi-droplet"></i> Car Washing
+                </button>
+                <button class="filter-btn-premium" data-filter="on-site">
+                    <i class="bi bi-truck"></i> On-Site Service
+                </button>
+            </div>
+
+            
+
+            <!-- Advanced Gallery Grid -->
+            <div class="gallery-grid-premium" id="gallery-container">
+                <!-- Gallery items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Lightbox -->
+    <div class="lightbox-modal-premium" id="lightbox-premium">
+        <div class="lightbox-content-premium">
+            <button class="lightbox-close-premium" id="lightbox-close-premium">
+                <i class="bi bi-x"></i>
+            </button>
+            <button class="lightbox-nav-premium lightbox-prev-premium" id="lightbox-prev-premium">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav-premium lightbox-next-premium" id="lightbox-next-premium">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+            <img src="" alt="" class="lightbox-image-premium" id="lightbox-image-premium">
+            <div class="lightbox-info-premium">
+                <span class="lightbox-category-premium" id="lightbox-category-premium">Category</span>
+                <h3 class="lightbox-title-premium" id="lightbox-title-premium">Project Title</h3>
+                <p class="lightbox-description-premium" id="lightbox-description-premium">Project description goes
+                    here...</p>
+                <div class="lightbox-meta-premium">
+                    <span class="lightbox-date" id="lightbox-date">Completed: Jan 2024</span>
+                    <div class="gallery-actions">
+                        <a href="#" class="gallery-action-btn">
+                            <i class="bi bi-download"></i>
+                        </a>
+                        <a href="#" class="gallery-action-btn">
+                            <i class="bi bi-share"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+
+
+
+
+        // Gallery Data - In real scenario, this would come from a CMS or API
+        const galleryData = [
+            {
+                
+                 id: 1,
+                category: "jcb-repairing",
+                title: "Owners of this Gairaj",
+                description: "Dedicated individuals managing and operating the Gairaj platform",
+                image: "image/shop_image.jpeg",
+                
+                
+            },
+            {
+                id: 2,
+                category: "jcb-repairing",
+                title: "Hydraulic System Repair",
+                description: "Professional hydraulic system maintenance and leak repair services with pressure testing and calibration.",
+                image: "image/image3.jpg",
+                date: "Completed: Feb 2024",
+                badge: "Expert"
+            },
+            {
+                id: 3,
+                category: "spare-parts",
+                title: "Genuine JCB Spare Parts",
+                description: "Comprehensive inventory of authentic OEM parts with warranty for all JCB models and equipment.",
+                image: "image/image4.jpg",
+                date: "Available Now",
+                badge: "Genuine"
+            },
+            {
+                id: 4,
+                category: "spare-parts",
+                title: "Engine Components Collection",
+                description: "Complete range of engine parts, filters, and accessories for optimal equipment performance.",
+                image: "image/image4.jpg",
+                date: "In Stock",
+                badge: "Quality"
+            },
+            {
+                id: 5,
+                category: "welding",
+                title: "Structural Welding Repair",
+                description: "Precision welding for JCB frames and structural components using advanced welding techniques.",
+                image: "image/image2.jpg",
+                date: "Completed: Jan 2024",
+                badge: "Precision"
+            },
+            {
+                id: 6,
+                category: "welding",
+                title: "Custom Metal Fabrication",
+                description: "Professional metal fabrication and custom welding solutions for specialized equipment needs.",
+                image: "image/image2.jpg",
+                date: "Completed: Dec 2023",
+                badge: "Custom"
+            },
+            {
+                id: 7,
+                category: "car-washing",
+                title: "Premium Car Detailing",
+                description: "Advanced cleaning, polishing, and protection treatments for vehicles of all types and sizes.",
+                image: "image/image7.jpg",
+                date: "Service Available",
+                badge: "Premium"
+            },
+            {
+                id: 8,
+                category: "car-washing",
+                title: "Commercial Vehicle Wash",
+                description: "Professional cleaning services for commercial vehicles, trucks, and heavy equipment.",
+                image: "image/image7.jpg",
+                date: "Service Available",
+                badge: "Commercial"
+            },
+            {
+                id: 9,
+                category: "on-site",
+                title: "Emergency Field Service",
+                description: "24/7 emergency repair services at construction sites and remote locations with mobile workshop.",
+                image: "image/image8.jpg",
+                date: "24/7 Available",
+                badge: "Emergency"
+            },
+            {
+                id: 10,
+                category: "on-site",
+                title: "Mobile Workshop Setup",
+                description: "Fully equipped service van with all necessary tools and parts for comprehensive on-site repairs.",
+                image: "https://images.unsplash.com/photo-1581092580497-e151a73dffc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                date: "Mobile Service",
+                badge: "Mobile"
+            },
+            {
+                id: 11,
+                category: "jcb-repairing",
+                title: "Transmission System Overhaul",
+                description: "Complete transmission repair and maintenance with genuine parts and expert calibration.",
+                image: "https://images.unsplash.com/photo-1581093458791-8a0a85d05118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                date: "Completed: Nov 2023",
+                badge: "Expert"
+            },
+            {
+                id: 12,
+                category: "spare-parts",
+                title: "Filter Systems Collection",
+                description: "Complete range of air, oil, and fuel filters for all JCB models and equipment types.",
+                image: "image/image9.jpg",
+                date: "In Stock",
+                badge: "Complete"
+            }
+        ];
+
+
+        // Enhanced Gallery Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryContainer = document.getElementById('gallery-container');
+            const filterButtons = document.querySelectorAll('.filter-btn-premium');
+            const lightbox = document.getElementById('lightbox-premium');
+            const lightboxImage = document.getElementById('lightbox-image-premium');
+            const lightboxCategory = document.getElementById('lightbox-category-premium');
+            const lightboxTitle = document.getElementById('lightbox-title-premium');
+            const lightboxDescription = document.getElementById('lightbox-description-premium');
+            const lightboxDate = document.getElementById('lightbox-date');
+            const lightboxClose = document.getElementById('lightbox-close-premium');
+            const lightboxPrev = document.getElementById('lightbox-prev-premium');
+            const lightboxNext = document.getElementById('lightbox-next-premium');
+
+            let currentImageIndex = 0;
+            let filteredItems = [];
+
+            // Initialize gallery
+            function initializeGallery() {
+                renderGalleryItems('all');
+                initializeStatsCounter();
+                initializeAnimations();
+            }
+
+            // Render gallery items
+            function renderGalleryItems(filter) {
+                galleryContainer.innerHTML = '';
+
+                const filteredData = filter === 'all'
+                    ? galleryData
+                    : galleryData.filter(item => item.category === filter);
+
+                filteredItems = filteredData;
+
+                filteredData.forEach((item, index) => {
+                    const galleryItem = createGalleryItem(item, index);
+                    galleryContainer.appendChild(galleryItem);
+
+                    // Add animation with delay
+                    setTimeout(() => {
+                        galleryItem.classList.add('animate-in');
+                    }, index * 100);
+                });
+            }
+
+            // Create gallery item HTML
+            function createGalleryItem(item, index) {
+                const div = document.createElement('div');
+                div.className = 'gallery-item-premium';
+                div.setAttribute('data-category', item.category);
+                div.setAttribute('data-index', index);
+
+                div.innerHTML = `
+                    <div class="gallery-image-container">
+                        <img src="${item.image}" alt="${item.title}" class="gallery-image-premium" loading="lazy">
+                        <span class="gallery-badge">${item.badge}</span>
+                        <div class="gallery-overlay-premium">
+                            <h3 class="gallery-title-premium">${item.title}</h3>
+                            <p class="gallery-description-premium">${item.description}</p>
+                            <div class="gallery-meta">
+                                <span class="gallery-date">${item.date}</span>
+                                <div class="gallery-actions">
+                                    <a href="#" class="gallery-action-btn">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                    <a href="#" class="gallery-action-btn">
+                                        <i class="bi bi-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Add click event
+                div.addEventListener('click', () => openLightbox(index));
+
+                return div;
+            }
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+                    renderGalleryItems(filterValue);
+                });
+            });
+
+            // Lightbox functionality
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const item = filteredItems[index];
+
+                lightboxImage.src = item.image;
+                lightboxImage.alt = item.title;
+                lightboxCategory.textContent = getCategoryName(item.category);
+                lightboxTitle.textContent = item.title;
+                lightboxDescription.textContent = item.description;
+                lightboxDate.textContent = item.date;
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function getCategoryName(category) {
+                const categories = {
+                    'jcb-repairing': 'JCB Repairing',
+                    'spare-parts': 'Spare Parts',
+                    'welding': 'Welding Service',
+                    'car-washing': 'Car Washing',
+                    'on-site': 'On-Site Service'
+                };
+                return categories[category] || category;
+            }
+
+            // Lightbox navigation
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + filteredItems.length) % filteredItems.length;
+                openLightbox(currentImageIndex);
+            }
+
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % filteredItems.length;
+                openLightbox(currentImageIndex);
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') showPrevImage();
+                    if (e.key === 'ArrowRight') showNextImage();
+                }
+            });
+
+            // Close lightbox on outside click
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Statistics counter animation
+            function initializeStatsCounter() {
+                const statNumbers = document.querySelectorAll('.stat-number');
+
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = Math.floor(current);
+                    }, 16);
+                });
+            }
+
+            // Initialize animations on scroll
+            function initializeAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe elements for animation
+                const animateElements = document.querySelectorAll('.section-badge, .section-title-premium, .section-subtitle-premium');
+                animateElements.forEach(el => observer.observe(el));
+            }
+
+            // Initialize everything
+            initializeGallery();
+
+            // Add loading simulation (for demo purposes)
+            setTimeout(() => {
+                document.querySelectorAll('.gallery-skeleton').forEach(skeleton => {
+                    skeleton.style.display = 'none';
+                });
+            }, 1500);
+        });
+        // Mobile Menu Functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('overlay');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburgerIcon.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Event listeners
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        closeMenu.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+
+        // Toggle services dropdown in mobile menu
+        mobileServicesToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            mobileServicesDropdown.classList.toggle('active');
+            mobileServicesToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link (except dropdown toggle)
+        document.querySelectorAll('.mobile-nav-link:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Close mobile menu on window resize if it's open and window is larger than 992px
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+
+        //navigation bar
+
+    </script>
+</body>
+
+</html>

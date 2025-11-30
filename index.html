@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Chhinmastke Enterprises</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+ 
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-tools brand-icon"></i>
+                Ma Chhinmastke <font color="orange"></font>Enterprises
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-wrench me-2"></i>JCB Repairing</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>JCB Spare Parts</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-lightning-charge me-2"></i>Welding
+                                    Service</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-droplet me-2"></i>Car Washing</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-truck me-2"></i>On-Site Service</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Call and WhatsApp Buttons - Desktop -->
+                <div class="d-none d-lg-flex ms-3">
+                    <a href="tel:+7779991828" class="btn btn-call">
+                        <i class="bi bi-telephone-fill me-1"></i> Call Now
+                    </a>
+                    <a href="book.html" target="_blank" class="btn btn-whatsapp">
+                        <i class="bi bi-whatsapp me-1"></i> Appointment </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler d-lg-none" type="button" id="mobileMenuToggle">
+                <div class="hamburger-icon">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3 class="mobile-menu-title">
+                <i class="bi bi-tools mobile-brand-icon"></i>
+                Menu
+            </h3>
+            <button class="close-menu" id="closeMenu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-house me-2"></i>Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-info-circle me-2"></i>About Us</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link dropdown-toggle" id="mobileServicesToggle">
+                    <i class="bi bi-tools me-2"></i>Services
+                </a>
+                <div class="mobile-dropdown" id="mobileServicesDropdown">
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-wrench me-2"></i>JCB Repairing</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-gear me-2"></i>JCB Spare Parts</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-lightning-charge me-2"></i>Welding
+                        Service</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-droplet me-2"></i>Car Washing</a>
+                    <a href="#" class="mobile-dropdown-item"><i class="bi bi-truck me-2"></i>On-Site Service</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="gallery.html" class="mobile-nav-link"><i class="bi bi-images me-2"></i>Gallery</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link"><i class="bi bi-telephone me-2"></i>Contact Us</a>
+            </li>
+        </ul>
+
+        <div class="mobile-buttons">
+            <a href="tel:+911234567890" class="mobile-btn mobile-btn-call">
+                <i class="bi bi-telephone-fill"></i> Call Now
+            </a>
+            <a href="book.html" target="_blank" class="mobile-btn mobile-btn-whatsapp">
+                <i class="bi bi-whatsapp"></i> Appointment
+            </a>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Fixed Mobile Buttons -->
+    <div class="fixed-mobile-buttons">
+        <a href="tel:+911234567890" class="btn fixed-call-btn">
+            <i class="bi bi-telephone-fill"></i> Call Now
+        </a>
+        <a href="book.html" target="_blank" class="btn fixed-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i> Appointment
+        </a>
+    </div>
+
+    <section id="carousel">
+        
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image/shop_image.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/shop_image.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="image/shop_image.jpeg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+
+    <!-- Our Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">
+                We provide reliable, fast and professional JCB and vehicle services to keep your machines
+                and vehicles running smoothly.
+            </p>
+
+            <div class="row g-4 mt-2">
+                <!-- JCB Repairing -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-wrench-adjustable"></i>
+                        </div>
+                        <h3>JCB Repairing</h3>
+                        <p>
+                            Expert repairing & maintenance for all JCB models by trained technicians,
+                            ensuring maximum performance and minimum downtime.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- JCB Spare Parts -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-gear-wide-connected"></i>
+                        </div>
+                        <h3>JCB Spare Parts</h3>
+                        <p>
+                            Genuine and high-quality JCB spare parts with warranty, perfect fit and long
+                            life for your machines.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Welding Service -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <h3>Welding Service</h3>
+                        <p>
+                            Professional welding work for structure repair, fabrication and
+                            heavy equipment, done with precision and safety.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Car Washing -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <h3>Car Washing</h3>
+                        <p>
+                            Complete car washing & cleaning with detailing to keep your vehicle fresh,
+                            shiny and protected.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- On-Site Service -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-truck-front-fill"></i>
+                        </div>
+                        <h3>On-Site Service</h3>
+                        <p>
+                            We come to your location for emergency breakdown repair and regular
+                            maintenance, saving you time and transport cost.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Extra card (optional) – you can remove or change -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3>Quality Assurance</h3>
+                        <p>
+                            Every job is checked and tested to ensure high quality, safety and
+                            long-term reliability for your vehicles and equipment.
+                        </p>
+                        <a href="#contact" class="service-read-more">
+                            Read More <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- EXPERIENCE / HIGHLIGHTS SECTION -->
+    <section class="experience-section">
+        <div class="container experience-wrapper">
+            <div class="experience-heading">
+                <div class="experience-badge">
+                    <i class="bi bi-award-fill"></i>
+                    Our Experience
+                </div>
+
+            </div>
+
+            <div class="row g-3 g-md-4">
+                <!-- Card 1 -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="experience-card h-100">
+                        <div class="experience-icon">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div>
+                            <!-- data-target + suffix for counter -->
+                            <div class="experience-number" data-target="10" data-suffix="+">0</div>
+                            <div class="experience-label">Years of Experience</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="experience-card h-100">
+                        <div class="experience-icon">
+                            <i class="bi bi-truck-front"></i>
+                        </div>
+                        <div>
+                            <div class="experience-number" data-target="500" data-suffix="+">0</div>
+                            <div class="experience-label">JCB Repaired</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="experience-card h-100">
+                        <div class="experience-icon">
+                            <i class="bi bi-emoji-smile"></i>
+                        </div>
+                        <div>
+                            <div class="experience-number" data-target="1000" data-suffix="+">0</div>
+                            <div class="experience-label">Happy Customers</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="experience-card h-100">
+                        <div class="experience-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <div class="experience-number" data-target="24" data-suffix="/7">0</div>
+                            <div class="experience-label">On-Site Support</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+     <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title">What Our Customers Say</h2>
+                    <p class="text-muted">Real feedback from clients who trust our JCB and vehicle services.</p>
+                </div>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Rajesh Kumar</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Excellent JCB repair service! They fixed my machine quickly and at a reasonable price. Highly recommended for anyone needing reliable JCB maintenance."</p>
+                                    <span class="service-badge">JCB Repairing</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Priya Sharma</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"The on-site welding service saved our project timeline. Professional team with quality workmanship. Will definitely use their services again."</p>
+                                    <span class="service-badge">Welding Service</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Amit Patel</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Got genuine JCB spare parts at competitive prices. Quick delivery and excellent customer service. My go-to place for all JCB needs."</p>
+                                    <span class="service-badge">JCB Spare Parts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Neha Singh</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"The car washing service is exceptional! They pay attention to every detail and my car looks brand new every time. Very professional team."</p>
+                                    <span class="service-badge">Car Washing</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Vikram Mehta</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Their on-site service is a lifesaver! When our JCB broke down at the construction site, they arrived quickly and fixed it on the spot. Highly reliable!"</p>
+                                    <span class="service-badge">On-Site Service</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Sunita Reddy</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Professional welding service with attention to detail. They completed the job on time and the quality is excellent. Will recommend to others."</p>
+                                    <span class="service-badge">Welding Service</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Rahul Verma</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Best JCB spare parts supplier in town. Genuine products with warranty and competitive pricing. Saved us from costly downtime."</p>
+                                    <span class="service-badge">JCB Spare Parts</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Sanjay Gupta</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Reliable JCB repair service with skilled technicians. They diagnosed the issue correctly and fixed it efficiently. Great value for money."</p>
+                                    <span class="service-badge">JCB Repairing</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="testimonial-card p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Customer" class="customer-img me-3">
+                                        <div>
+                                            <h5 class="mb-1">Anjali Joshi</h5>
+                                            <div class="star-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">"Excellent car washing service! They're thorough and use quality products. My car has never looked better. Highly recommended!"</p>
+                                    <span class="service-badge">Car Washing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>
