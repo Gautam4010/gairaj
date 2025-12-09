@@ -802,6 +802,9 @@ body {
         .carousel-control-next {
             display: none;
         }
+        #carousel{
+            margin-top:100px;
+        }
 
     }
 
