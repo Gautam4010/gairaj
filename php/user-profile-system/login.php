@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 set_flash_message('success', 'Welcome back, ' . $user['full_name'] . '!');
                 
                 // Redirect to profile
-                header('Location: profile.php');
+                header('Location: ../../index.html');
                 exit();
             } else {
                 $error = 'Invalid email or password';
