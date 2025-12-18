@@ -3,351 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Garage Services</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Maa Chhinmastike Enterprises - Garage Services</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-       
+        /* --- GLOBAL VARIABLES --- */
+        :root {
+            --primary-blue: #0d1b2a;
+            --accent-red: #d90429;
+            --light-bg: #f8fafc;
+            --text-dark: #1f2937;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --hover-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: radial-gradient(circle at top left, #e5edff 0, #f9fafb 45%, #e5e7eb 100%);
-
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            overflow-x: hidden;
         }
 
-        .contact-section {
-            padding: 80px 0;
-    background: radial-gradient(circle at top left, #5f74a4 0, #f9fafb 45%, #e5e7eb 100%);
+        /* --- SECTION TITLES --- */
+        .section-title h2 {
+            font-weight: 800; text-transform: uppercase;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-red));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block; margin-bottom: 10px;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            color: white;
+        /* --- FILTER BUTTONS (SCROLLABLE) --- */
+        .filter-scroll-container {
+            overflow-x: auto; white-space: nowrap; padding: 10px 5px;
+            -webkit-overflow-scrolling: touch; scrollbar-width: none;
+            margin-bottom: 20px; text-align: center;
+        }
+        .filter-scroll-container::-webkit-scrollbar { display: none; }
+
+        .filter-btn-modern {
+            display: inline-block; padding: 8px 24px; margin: 0 4px;
+            border: 1px solid #e2e8f0; border-radius: 50px;
+            background: #fff; color: var(--text-dark);
+            font-size: 0.9rem; font-weight: 500;
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .filter-btn-modern:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .filter-btn-modern.active {
+            background: var(--primary-blue); color: #fff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(13, 27, 42, 0.25);
         }
 
-        .section-header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+        /* --- GALLERY GRID & ANIMATION FIX --- */
+        #gallery { padding: 60px 0; background: var(--light-bg); }
+
+        .gallery-item {
+            transition: transform 0.4s ease; /* Smooth movement */
         }
 
-        .section-header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto;
+        /* Hide instantly to prevent layout gaps */
+        .gallery-item.hide { display: none !important; }
+
+        /* Smooth Pop-in Animation */
+        .gallery-item.show {
+            display: block !important;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
-        .contact-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .contact-card:hover {
-            transform: translateY(-5px);
+        /* Card Styles */
+        .gallery-card {
+            border: none; border-radius: 16px; overflow: hidden;
+            background: #fff; box-shadow: var(--card-shadow);
+            transition: all 0.3s ease; cursor: pointer; height: 100%;
         }
+        .gallery-card:hover { transform: translateY(-8px); box-shadow: var(--hover-shadow); }
+        
+        .card-img-wrapper { position: relative; height: 240px; overflow: hidden; }
+        .card-img-top { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-card:hover .card-img-top { transform: scale(1.1); }
 
-        .form-label {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 8px;
+        .overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(13, 27, 42, 0.4);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
         }
+        .gallery-card:hover .overlay { opacity: 1; }
+        .overlay i { color: #fff; font-size: 1.5rem; background: var(--accent-red); padding: 14px; border-radius: 50%; }
 
-        .form-control, .form-select {
-            border-radius: 10px;
-            border: 2px solid #e0e0e0;
-            padding: 12px 15px;
-            transition: all 0.3s ease;
+        .card-body { padding: 20px; }
+        .badge-custom {
+            background-color: var(--primary-blue); color: #fff;
+            font-size: 0.7rem; padding: 5px 12px; border-radius: 6px;
+            text-transform: uppercase; font-weight: 600; margin-bottom: 8px; display: inline-block;
         }
+        .card-title { font-weight: 700; color: var(--primary-blue); font-size: 1.1rem; margin: 0; }
 
-        .form-control:focus, .form-select:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15);
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 10px;
-            padding: 14px 40px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: white;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info-item:hover {
-            background: #e8f4f8;
-            transform: translateX(5px);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .contact-icon i {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .contact-text h5 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .contact-text p {
-            margin: 0;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .contact-text a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-text a:hover {
-            color: var(--secondary-color);
-        }
-
-        .business-hours {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .business-hours h4 {
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .business-hours h4 i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .hours-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .hours-list li:last-child {
-            border-bottom: none;
-        }
-
-        .day {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .time {
-            color: #666;
-        }
-
-        .map-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            height: 400px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        @media (max-width: 768px) {
-            .section-header h1 {
-                font-size: 2rem;
-            }
-
-            .contact-card {
-                padding: 25px;
-            }
-
-            .map-container {
-                height: 300px;
-                margin-top: 30px;
-            }
+        /* Lightbox */
+        .btn-close-custom {
+            position: absolute; top: -40px; right: 0;
+            color: #fff; font-size: 30px; background: none; border: none;
         }
     </style>
 </head>
 <body>
-    <section class="contact-section">
+
+    <div style="padding: 80px 0; text-align: center; background: #f8f9fa;">
+        <h1 class="display-5 fw-bold text-dark">Expert Garage Services</h1>
+        <p class="lead text-muted">JCB Repairing, Welding & Maintenance</p>
+    </div>
+
+    <section id="gallery">
         <div class="container">
-            <div class="section-header">
-                <h1>Get in Touch With Us</h1>
-                <p>Contact us for expert servicing, reliable repairs, or convenient booking. We're here to keep your vehicle running smoothly!</p>
+            
+            <div class="row text-center mb-4" data-aos="fade-up">
+                <div class="col-lg-8 mx-auto section-title">
+                    <h2>Our Gallery & Events</h2>
+                    <p>Filter to explore our work and upcoming workshops.</p>
+                </div>
             </div>
 
-            <div class="row">
-                <!-- Contact Form -->
-                <div class="col-lg-6 mb-4">
-                    <div class="contact-card">
-                        <h3 class="mb-4" style="color: var(--primary-color); font-weight: 700;">Send Us a Message</h3>
-                        <form>
-                            <div class="mb-3">
-                                <label for="fullName" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="serviceType" class="form-label">Service Type</label>
-                                <select class="form-select" id="serviceType" required>
-                                    <option value="" selected disabled>Choose a service</option>
-                                    <option value="general">General Servicing</option>
-                                    <option value="repair">Repair Work</option>
-                                    <option value="maintenance">Preventive Maintenance</option>
-                                    <option value="diagnostics">Diagnostics</option>
-                                    <option value="booking">Appointment Booking</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" rows="4" placeholder="Tell us about your vehicle needs..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-submit">
-                                <i class="bi bi-send-fill me-2"></i>Send Message
-                            </button>
-                        </form>
+            <div class="row" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="filter-scroll-container">
+                        <button class="filter-btn-modern active" data-filter="all">All</button>
+                        <button class="filter-btn-modern" data-filter="jcb">JCB Repair</button>
+                        <button class="filter-btn-modern" data-filter="parts">Spare Parts</button>
+                        <button class="filter-btn-modern" data-filter="welding">Welding</button>
+                        <button class="filter-btn-modern" data-filter="washing">Car Wash</button>
+                        <button class="filter-btn-modern" data-filter="onsite">On-Site</button>
+                        <button class="filter-btn-modern" data-filter="events">Events</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4" id="gallery-grid">
+                
+                <div class="col-lg-4 col-md-6 gallery-item jcb" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-custom">JCB Repair</span>
+                            <h5 class="card-title">Hydraulic Fix</h5>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Contact Information & Map -->
-                <div class="col-lg-6">
-                    <!-- Contact Details -->
-                    <div class="contact-card">
-                        <h3 class="mb-4" style="color: var(--primary-color); font-weight: 700;">Contact Information</h3>
-                        
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-telephone-fill"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h5>Phone Number</h5>
-                                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
-                            </div>
+                <div class="col-lg-4 col-md-6 gallery-item welding" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-search-plus"></i></div>
                         </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-whatsapp"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h5>WhatsApp</h5>
-                                <p><a href="https://wa.me/1234567890" target="_blank">+1 (234) 567-890</a></p>
-                            </div>
+                        <div class="card-body">
+                            <span class="badge-custom">Welding</span>
+                            <h5 class="card-title">Structural Work</h5>
                         </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h5>Email Address</h5>
-                                <p><a href="mailto:info@yourgarage.com">info@yourgarage.com</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h5>Our Location</h5>
-                                <p>123 Main Street, Jamshedpur<br>Jharkhand 831001, India</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Business Hours -->
-                    <div class="business-hours">
-                        <h4><i class="bi bi-clock-fill"></i>Business Hours</h4>
-                        <ul class="hours-list">
-                            <li>
-                                <span class="day">Monday - Friday</span>
-                                <span class="time">8:00 AM - 6:00 PM</span>
-                            </li>
-                            <li>
-                                <span class="day">Saturday</span>
-                                <span class="time">9:00 AM - 4:00 PM</span>
-                            </li>
-                            <li>
-                                <span class="day">Sunday</span>
-                                <span class="time">Closed</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Google Map -->
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.9234567890123!2d86.185!3d22.805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQ4JzE4LjAiTiA4NsKwMTEnMDYuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item parts" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1486262715619-01b8c247de05?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-custom">Spare Parts</span>
+                            <h5 class="card-title">Genuine Parts</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item events" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper position-relative">
+                            <div class="position-absolute bg-white rounded text-center shadow-sm p-1 px-2" style="top:10px; left:10px; z-index:5;">
+                                <span class="d-block fw-bold text-danger lh-1 fs-5">15</span>
+                                <span class="d-block text-uppercase fw-bold text-dark" style="font-size:0.7rem">Dec</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-calendar-check"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-custom bg-warning text-dark">Upcoming Event</span>
+                            <h5 class="card-title">Free Service Camp</h5>
+                            <small class="text-muted d-block mt-1"><i class="fas fa-clock text-danger me-1"></i>10:00 AM @ Main Garage</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item onsite" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1632823471465-4113d2deb095?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-custom">On-Site</span>
+                            <h5 class="card-title">Field Repair</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="col-lg-4 col-md-6 gallery-item washing" data-aos="fade-up">
+                    <div class="gallery-card" onclick="openLightbox(this)">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=600&auto=format&fit=crop" class="card-img-top" loading="lazy">
+                            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge-custom">Washing</span>
+                            <h5 class="card-title">Foam Wash</h5>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="lightboxModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0 position-relative">
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal"><i class="fas fa-times"></i></button>
+                    <img src="" id="lightboxImage" class="w-100 rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // --- FIXED FILTER LOGIC ---
+        const filterBtns = document.querySelectorAll('.filter-btn-modern');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    // Reset Animation Class
+                    item.classList.remove('show');
+                    
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        // Match: Remove 'hide' class instantly, Add 'show' for animation
+                        item.classList.remove('hide');
+                        item.classList.add('show');
+                    } else {
+                        // No Match: Add 'hide' class instantly to collapse space
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+
+        // Lightbox Logic
+        function openLightbox(el) {
+            document.getElementById('lightboxImage').src = el.querySelector('img').src;
+            new bootstrap.Modal(document.getElementById('lightboxModal')).show();
+        }
+    </script>
 </body>
 </html>
